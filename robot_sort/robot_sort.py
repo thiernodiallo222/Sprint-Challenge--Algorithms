@@ -96,19 +96,31 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-    #      for i in range(len(arr)):
-    #     minimum = i
-        
-    #     for j in range(i + 1, len(arr)):
-    #         # Select the smallest value
-    #         if arr[j] < arr[minimum]:
-    #             minimum = j
+        self.set_light_on()
+        while self.light_is_on():
+            self.swap_item()
 
-    #     # Place it at the front of the 
-    #     # sorted end of the array
-    #     arr[minimum], arr[i] = arr[i], arr[minimum]
-            
-    # return arr
+
+        while self.can_move_right():
+            self.move_right()
+
+            # Swap for bigger item
+        if self.compare_item() == 1:
+            self.swap_item()
+
+          #if cannot move right, turn off
+        if not self.can_move_right():
+            self.set_light_off()
+
+          # if number at current index doesnt exist break the loop
+        while self.compare_item() is not None:
+            self.move_left()
+
+            self.swap_item()
+            self.move_right()
+
+        return self._list
+  
 
 
 if __name__ == "__main__":
