@@ -111,7 +111,7 @@ class SortingRobot:
                     self.swap_item() 
 
                 elif self.can_move_right() == False and self.compare_item() == 1:
-                    self.swap_item() # Will this work??
+                    self.swap_item() 
 
 
             while self.can_move_left() == True:
